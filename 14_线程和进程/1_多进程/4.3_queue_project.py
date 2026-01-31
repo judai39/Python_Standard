@@ -23,7 +23,6 @@ def read(q):
 if __name__ == '__main__':
     # 父进程创建Queue，子进程共享队列数据
     q=Queue()
-    q='m'
     pw=Process(target=write,args=(q,))
     pr=Process(target=read,args=(q,))
     pw.start()
