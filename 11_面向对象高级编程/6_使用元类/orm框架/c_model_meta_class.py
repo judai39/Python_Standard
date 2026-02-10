@@ -37,6 +37,7 @@ class Model(dict, metaclass=ModelMetaClass):
             fields.append(v.name)
             params.append('?')
             args.append(getattr(self,k,None))
+        # ','.join()方法将序列中的元素以指定的字符连接生成一个新的字符串(例如：','.join(['a','b','c']) => 'a,b,c')
         sql='insert into %s (%s) values (%s)' % (self.__table__,','.join(fields),','.join(params))
         print('SQL: %s' % sql)
         print('ARGS: %s' % str(args))
