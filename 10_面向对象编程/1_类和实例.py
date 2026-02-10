@@ -21,10 +21,17 @@ Person.set_name=lambda self,name: setattr(self,'name',name)#为Person类添加�
 
 # 2.什么叫类方法，实例方法？
 # 实例方法：定义在类中的函数，第一个参数是self，表示实例本身（仅当前实例可以调用）
-# 类方法：定义在类中的函数，第一个参数是cls，表示类本身，通过@classmethod装饰器定义（所有实例都可调用）
-# 甚至可以类名调用，如下：
-print(Person.get_person)
-# 类中方法均为类方法
+# 类方法：我们希望,将实例化对象中的批量的相同属性和方法抽取出来,放在类中,通过@classmethod装饰器定义（所有实例都可调用）
+class student:
+    teacher="小白"#本班中的所有学生的老师都是小白,所以这个属性应该是属于类的是类属性,因此可以放在类里
+
+    @classmethod#类方法
+    def get_teacher(cls):
+        return cls.teacher#返回的是类属性teacher,即使实例化后修改teacher属性,也不会影响类属性teacher的值
+s1=student()
+s1.teacher="小黑"
+print(s1.get_teacher())#小白
+print(student.get_teacher())#也可以通过类名调用
 
 # 3.什么是静态方法？
 # 静态方法：定义在类中的函数，没有默认参数（既不是self也不是cls），通过@staticmethod装饰器定义（所有实例都可调用）
