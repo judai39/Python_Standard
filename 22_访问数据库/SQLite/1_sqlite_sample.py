@@ -24,7 +24,7 @@ connection.close()
 conn=sqlite3.connect("test.db")#如果再次声明为connection,python系统会进行优化，认为它是同一个对象，所以我们改为conn
 cursor=conn.cursor()
 cursor.execute("SELECT * FROM users")
-# 使用fetchall()获取所有查询结果
+# 使用fetchall()获取所有查询结果（fetchall()会返回cursor执行的所有SELECT结果）
 for row in cursor.fetchall():
     print(row)
 conn.close()
