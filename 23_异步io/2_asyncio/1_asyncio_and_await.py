@@ -9,4 +9,10 @@ async def asyncio_function():
     await asyncio.sleep(1)
     print("asyncio function executed")
 
-asyncio.run(asyncio_function())
+
+# asyncio.run(asyncio_function())   直接run运行协程
+
+# gather调度群体协程(本质就是用gather包装嵌套了其他的协程方法进行执行)
+async def main():
+    await asyncio.gather(asyncio_function(),asyncio_function())
+asyncio.run(main())
