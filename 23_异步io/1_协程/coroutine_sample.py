@@ -9,6 +9,7 @@
 def consumer():
     r = ''
     while True:
+        # 返回produce()的返回值直到下一次yield都可以覆盖传值
         n = yield r
         if not n:
             return
