@@ -35,8 +35,8 @@ s1=student()
 s1.teacher="小黑"
 print(s1.get_teacher())#小白
 print(student.get_teacher())#也可以通过类名调用
-print(student.__name__)
 print(student.teacher)
+# print(student.name)    type object 'student' has no attribute 'name'类名调用不能调用实例属性
 
 # 3.什么是静态方法？
 # 静态方法：定义在类中的函数，没有默认参数（既不是self也不是cls），通过@staticmethod装饰器定义（所有实例都可调用）
